@@ -13,6 +13,6 @@ module.exports = withPWA({
   reactStrictMode: false,
   i18n,
   env: {
-    API_URL: "https://next-property-front-end-9jni-8o0nod1cu-ahmad-umais-projects.vercel.app/api",
+    API_URL: "https://next-property-front-end-9jni-iw92e7wle-ahmad-umais-projects.vercel.app/api",
   },
 });
