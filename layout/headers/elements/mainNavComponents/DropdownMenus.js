@@ -17,7 +17,26 @@ const DropdownMenus = ({ navTitle, isOpen, setIsOpen, isOpenChild, setIsOpenChil
   return (
     <li className="dropdown">
       {/* menuItems : HOME, LISTING, PROPERTY, MODULES, AGENT, CONTACT */}
-      <a
+      
+      {(navTitle.path !== undefined)?(
+        <Link href={navTitle.path}>
+        {!mobileSize && icon && navTitle.icon}
+        {navTitle.title}
+        {navTitle.tag && <span className="label">{navTitle.tag}</span>}
+      </Link>
+      // <a href={(navTitle.path !== undefined)?navTitle.path.path:""}
+      //   className={`nav-link menu-title ${isOpen === navTitle.title ? "active" : ""}`}
+      //   >
+      //   {/* {!mobileSize && icon && navTitle.icon} */}
+      //   {t(navTitle.title)}
+      //   <span className="according-menu">{isOpen === navTitle.title ? "-" : "+"}</span>if
+      // </a>
+    
+
+      
+
+      ):(
+        <a
         className={`nav-link menu-title ${isOpen === navTitle.title ? "active" : ""}`}
         onClick={(e) => {
           e.preventDefault();
@@ -27,7 +46,10 @@ const DropdownMenus = ({ navTitle, isOpen, setIsOpen, isOpenChild, setIsOpenChil
         {!mobileSize && icon && navTitle.icon}
         {t(navTitle.title)}
         <span className="according-menu">{isOpen === navTitle.title ? "-" : "+"}</span>
-      </a>
+      </a>        
+      )}
+      
+      {navTitle.children.length > 0 ? (
       <ul className={`nav-submenu menu-content ${mobileSize && isOpen === navTitle.title ? "d-block" : "d-none d-xl-block"}`}>
         {navTitle.children.map((navList, index) => (
           <li key={index}>
@@ -111,6 +133,7 @@ const DropdownMenus = ({ navTitle, isOpen, setIsOpen, isOpenChild, setIsOpenChil
           </li>
         ))}
       </ul>
+      ):""}
     </li>
   );
 };

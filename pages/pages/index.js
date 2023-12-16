@@ -6,7 +6,7 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useEffect } from "react";
 import NavbarTwo from "../../layout/headers/NavbarTwo";
-import FooterTwo from "../../layout/footers/FooterTwo";
+import FooterOne from "../../layout/footers/FooterTwo";
 import BodyContent from "../../components/home/corporate";
 import { ConfigDB } from "../../config/themeCustomizerConfig";
 
@@ -22,7 +22,7 @@ const Corporate = () => {
     <>
       <NavbarTwo />
       <BodyContent />
-      <FooterTwo />
+      <FooterOne />
     </>
   );
 };

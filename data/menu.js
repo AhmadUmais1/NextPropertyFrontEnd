@@ -701,37 +701,40 @@ export const MainNavMenuItems = [
     ],
   },
   {
+    title:"Our Blogs",
+    type:"sub",
+    path:"/pages/masonry",
+    children:[],
+  },
+  {
     title: "AGENT",
     icon: <User />,
     type: "sub",
+    path: "/pages/agent-list",
     children: [
-      {
+      /* {
         path: "/agent/agent-profile",
         title: "Agent Profile",
         type: "link",
-      },
-      { path: "/agent/agent-grid", title: "Agent Grid", type: "link" },
-      { path: "/agent/agent-list", title: "Agent List", type: "link" },
-      {
+      }, */
+/*       { path: "/agent/agent-grid", title: "Agent Grid", type: "link" },
+ */      
+/* { path: "/pages/agent-list", title: "Agent List", type: "link" },
+ */      /* {
         path: "/agent/submit-property",
         title: "Submit Property",
         type: "link",
         tag: "New",
-      },
+      }, */
     ],
   },
   {
     title: "CONTACT",
     icon: <MapPin />,
     type: "sub",
+    path:"/pages/contactUs",
     children: [
-      {
-        path: "/contact/contact-us-1",
-        title: "Contact Us 1",
-        type: "link",
-      },
-      { path: "/contact/contact-us-2", title: "Contact Us 2", type: "link" },
-      { path: "/contact/contact-us-3", title: "Contact Us 3", type: "link" },
+      
     ],
   },
 ];
