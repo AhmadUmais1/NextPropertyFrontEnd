@@ -2,11 +2,11 @@
 :root {
     --theme-default: #6432b8;
     --theme-default2: #9516d7;
-    --theme-gradient1: linear-gradient(to right, var(--theme-default) 0%, var(--theme-default2) 51%, var(--theme-default) 100%);
-    --theme-gradient2: linear-gradient(to right, var(--theme-default) 0%, var(--theme-default2) 100%);
+    --theme-gradient1: linear-gradient(to right, var(--theme-default) 0%, var(--theme-default) 100%, /* var(--theme-default) 100% */);
+    --theme-gradient2: linear-gradient(to right, var(--theme-default) 0%, var(--theme-default) 100%);
     --theme-gradient3: linear-gradient(48deg, var(--theme-default) 0%, var(--theme-default2) 100%);
-    --theme-gradient4: linear-gradient(to right, var(--theme-default) 25%, var(--theme-default2) 100%);
-  
+    --theme-gradient4: linear-gradient(to right, var(--theme-default) 25%, var(--theme-default2) 100%); 
+    
     // --theme-default3: #ff5c41;
     // --theme-default4: #ff8c41;
     // --theme-gradient5: linear-gradient(to right, var(--theme-default3) 0%, var(--theme-default4) 51%, var(--theme-default3) 100%);

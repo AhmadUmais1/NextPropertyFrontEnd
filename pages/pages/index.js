@@ -6,7 +6,7 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useEffect } from "react";
 import NavbarTwo from "../../layout/headers/NavbarTwo";
-import FooterOne from "../../layout/footers/FooterTwo";
+import FooterOne from "../../layout/footers/FooterOne";
 import BodyContent from "../../components/home/corporate";
 import { ConfigDB } from "../../config/themeCustomizerConfig";
 
