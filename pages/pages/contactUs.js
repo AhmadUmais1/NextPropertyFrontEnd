@@ -10,7 +10,6 @@ export const getStaticProps = async ({ locale }) => ({ props: { ...(await server
 import FooterOne from "../../layout/footers/FooterOne";
 import Breadcrumb from "../../layout/Breadcrumb/Breadcrumb";
 import BodyContent from "../../components/contact/contactUs3";
-import LoadHeader from "../../layout/headers/LoadHeader";
 
 const ContactUs1 = () => {
   return (
