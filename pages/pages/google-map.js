@@ -4,7 +4,7 @@
  */
 import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import NavbarTwo from "../../layout/headers/NavbarTwo";
+import LoadHeader from "../../layout/headers/LoadHeader";
 
 export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
 import Breadcrumb from "../../layout/Breadcrumb/Breadcrumb";
@@ -15,7 +15,7 @@ import Google from "../../components/listing/gridView/map/GoogleMap";
 const GoogleMap = () => {
   return (
     <>
-      <NavbarTwo />
+      <LoadHeader />
       <Breadcrumb />
       <MapView gridType={"grid-view"} side={"right"}>
         <Google />

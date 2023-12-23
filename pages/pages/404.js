@@ -2,14 +2,13 @@ import React from "react";
 import { Container, Row } from "reactstrap";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
-import NavbarTwo from "../../layout/headers/NavbarTwo";
-
+import LoadHeader from "../../layout/headers/LoadHeader";
 export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
 
 const Page404 = () => {
   return (
     <>
-      <NavbarTwo />
+      <LoadHeader />
       <section className="error-section small-section">
         <Container>
           <Row>

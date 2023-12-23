@@ -18,9 +18,9 @@ const Corporate = () => {
       !ConfigDB.SecondaryColor && document.documentElement.style.setProperty("--theme-default2", "#5eac12");
     }, 0.1);
   }, []);
+  console.log("0-------------------------------------")
   return (
     <>
-      <NavbarTwo />
       <BodyContent />
       <FooterOne />
     </>

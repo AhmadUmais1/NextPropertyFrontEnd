@@ -6,9 +6,8 @@ import React, { useEffect, useState } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import BodyContent from "../../components/pages/agency/agencyGrid";
 import Breadcrumb from "../../layout/Breadcrumb/Breadcrumb";
+import LoadHeader from "../../layout/headers/LoadHeader";
 import FooterOne from "../../layout/footers/FooterOne";
-import NavbarTwo from "../../layout/headers/NavbarTwo";
-
 export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
 import { getData } from "../../utils/getData";
 
@@ -24,7 +23,7 @@ const AgentList = () => {
   }, []);
   return (
     <>
-      <NavbarTwo />
+      <LoadHeader />
       <Breadcrumb />
       <BodyContent clientData={clientData} style={"list-view"} listSize={2} size={3} />
       <FooterOne />

@@ -11,14 +11,14 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Breadcrumb from "../../layout/Breadcrumb/Breadcrumb";
 import BodyContent from "../../components/pages/blogPage/sidebarPage";
 import FooterOne from "../../layout/footers/FooterOne";
-import NavbarTwo from "../../layout/headers/NavbarTwo";
+import LoadHeader from "../../layout/headers/LoadHeader";
 
 export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
 
 const LeftSidebar = () => {
   return (
     <>
-      <NavbarTwo />
+      <LoadHeader />
       <Breadcrumb />
       <BodyContent side={"left"} />
       <FooterOne />

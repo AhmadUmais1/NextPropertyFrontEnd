@@ -2,7 +2,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import NavbarTwo from "../../layout/headers/NavbarTwo";
+import LoadHeader from "../../layout/headers/LoadHeader";
 
 export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
 import FooterOne from "../../layout/footers/FooterOne";
@@ -13,7 +13,7 @@ const DynamicBodyContent = dynamic(() => import("../../components/pages/portfoli
 const Masonry3 = () => {
   return (
     <>
-      <NavbarTwo />
+      <LoadHeader />
       <Breadcrumb />
       <DynamicBodyContent masonryGrid={3} />
       <FooterOne />
