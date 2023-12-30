@@ -3,17 +3,37 @@
  * @returns A navbar with a dropdown menu and a mega menu.
  */
 import Link from "next/link";
-import React, { Fragment, useState } from "react";
-import { MainNavMenuItems } from "../../../data/menu";
+import React, { Fragment, useState, useEffect } from "react";
+/* import { MainNavMenuItems } from "../../../data/menu";
+ */
+import { getMainMenuData } from "../../../services/SiteInitService";
 import DropdownMenus from "./mainNavComponents/DropdownMenus";
 import MegaMenu from "./mainNavComponents/MegaMenu";
-
+/* import { getSiteInitData } from "../../../services/SiteInitService";
+ */
 const MainNav = ({ center, icon }) => {
   const [openNavbar, setOpenNavbar] = useState(false);
   const [isOpen, setIsOpen] = useState();
   const [isOpenChild, setIsOpenChild] = useState();
   const [isOpenNestedChild, setIsOpenNestedChild] = useState();
+  const [mainNavMenuItems, setMainNavMenuItems] = useState([]);
 
+  // useEffect(() => {
+    
+  // }, [mainNavMenuItems]);
+
+
+  useEffect(() => {
+    getMainMenuData()
+      .then((res) => {
+        setMainNavMenuItems(res);
+      })
+      .catch((error) => console.log("Error", error));
+  }, []);
+  
+//
+/* console.log(getMainMenuData,".................");
+console.log(getSiteInitData(),"..................") */
   return (
     <nav>
       <div className="main-navbar">
@@ -30,24 +50,29 @@ const MainNav = ({ center, icon }) => {
                 <i aria-hidden="true" className="fa fa-angle-right ps-2"></i>
               </div>
             </li>
-            {MainNavMenuItems.map((navTitle, index) => (
-              <Fragment key={index}>
-                {navTitle.type === "sub" ? (
-                  <DropdownMenus
-                    navTitle={navTitle}
-                    isOpen={isOpen}
-                    setIsOpen={setIsOpen}
-                    isOpenChild={isOpenChild}
-                    setIsOpenChild={setIsOpenChild}
-                    isOpenNestedChild={isOpenNestedChild}
-                    setIsOpenNestedChild={setIsOpenNestedChild}
-                    icon={icon}
-                  />
-                ) : (
-                  <MegaMenu navTitle={navTitle} isOpen={isOpen} setIsOpen={setIsOpen} i isOpenNestedChild={isOpenNestedChild} setIsOpenNestedChild={setIsOpenNestedChild} />
-                )}
-              </Fragment>
-            ))}
+            {(mainNavMenuItems.map !== undefined)?(
+              
+              mainNavMenuItems.map((navTitle, index) => (
+                <Fragment key={index}>
+                  {navTitle.type === "sub" ? (
+                    <DropdownMenus
+                      navTitle={navTitle}
+                      isOpen={isOpen}
+                      setIsOpen={setIsOpen}
+                      isOpenChild={isOpenChild}
+                      setIsOpenChild={setIsOpenChild}
+                      isOpenNestedChild={isOpenNestedChild}
+                      setIsOpenNestedChild={setIsOpenNestedChild}
+                      icon={icon}
+                    />
+                  ) : (
+                    <MegaMenu navTitle={navTitle} isOpen={isOpen} setIsOpen={setIsOpen} i isOpenNestedChild={isOpenNestedChild} setIsOpenNestedChild={setIsOpenNestedChild} />
+                  )}
+                </Fragment>
+              ))
+
+            ):("")}
+            
           </ul>
           {center && (
             <div className="brand-logo">

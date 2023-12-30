@@ -6,17 +6,27 @@
 import Link from "next/link";
 import React, { Fragment } from "react";
 import { User } from "react-feather";
-import { RightNavMenuItem } from "../../../data/menu";
+import { useState,useEffect } from "react";
 import Cart from "./rightNavComponents/Cart";
 import Currency from "./rightNavComponents/Currency";
 import Language from "./rightNavComponents/Language";
+import { getRightNavData } from "../../../services/SiteInitService";
+const RightNav = () =>{
+  const [rightNavItems, setRightNavItems] = useState([]);
+  useEffect(() => {
+    getRightNavData()
+      .then((res) => {
+        setRightNavItems(res);
+      })
+      .catch((error) => console.log("Error", error));
+}, []);
 
-const RightNav = () => {
+console.log(getRightNavData(),"right nav data....");
   return (
     <ul className="header-right">
       <li className="right-menu">
         <ul className="nav-menu">
-          {RightNavMenuItem.map((value, i) => (
+          {rightNavItems.map((value, i) => (
             <Fragment key={i}>
               {value.title === "language" && <Language value={value} />}
               {value.title === "cart" && <Cart />}

@@ -14,5 +14,6 @@ module.exports = withPWA({
   i18n,
   env: {
     API_URL: "/api",
+    PanelApiUrl:"https://realtor.bh/api/v1/"
   },
 });

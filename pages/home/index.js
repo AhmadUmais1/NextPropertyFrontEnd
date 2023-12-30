@@ -6,7 +6,9 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useEffect } from "react";
 import LoadHeader from "../../layout/headers/LoadHeader";
-import FooterOne from "../../layout/footers/FooterOne";
+/* import FooterOne from "../../layout/footers/FooterOne";
+ */
+import LoadFooter from "../../layout/footers/LoadFooter";
 import BodyContent from "../../components/home/corporate";
 import { ConfigDB } from "../../config/themeCustomizerConfig";
 
@@ -22,7 +24,7 @@ const Corporate = () => {
     <>
       <LoadHeader />
       <BodyContent />
-      <FooterOne />
+      <LoadFooter />
     </>
   );
 };

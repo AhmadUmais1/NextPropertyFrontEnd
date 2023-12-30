@@ -7,7 +7,8 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import BodyContent from "../../components/pages/agency/agencyGrid";
 import Breadcrumb from "../../layout/Breadcrumb/Breadcrumb";
 import LoadHeader from "../../layout/headers/LoadHeader";
-import FooterOne from "../../layout/footers/FooterOne";
+import LoadFooter from "../../layout/footers/LoadFooter";
+//import FooterOne from "../../layout/footers/FooterOne";
 export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
 import { getData } from "../../utils/getData";
 
@@ -26,7 +27,7 @@ const AgentList = () => {
       <LoadHeader />
       <Breadcrumb />
       <BodyContent clientData={clientData} style={"list-view"} listSize={2} size={3} />
-      <FooterOne />
+      <LoadFooter />
     </>
   );
 };

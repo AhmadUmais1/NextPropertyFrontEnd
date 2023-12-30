@@ -7,12 +7,13 @@ import NavbarOne from "./NavbarOne";
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from 'react';
+//import callApi from "../callApi";
 function LoadHeader() {
   const [apiData, setApiData] = useState(null);
 
   useEffect(() => {
     axios
-      .get('https://realtor.bh/api/v1/site/init')
+      .get("https://realtor.bh/api/v1/site/init")
       .then((res) => {
        
         setApiData(res.data);
