@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Col, Container, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, InputGroup, Row } from "reactstrap";
-import LoadLogo from "../../../components/elements/LoadLogo";
 import SearchSuggestionBox from "../../../components/elements/SearchSuggestionBox";
 import useOutsideDropdown from "../../../utils/useOutsideDropdown";
 import RightNav from "./RightNav";
@@ -19,7 +18,7 @@ const TopBar = ({ logo }) => {
         <Row>
           <Col>
             <div className="top-content top-nav">
-              {logo || <LoadLogo />}
+              {logo}
               <ul className="top-bar-right right-menu">
                 <li className="cart">
                   <InputGroup className="header-right ">
