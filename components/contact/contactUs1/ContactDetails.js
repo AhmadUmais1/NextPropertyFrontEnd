@@ -14,8 +14,8 @@ const ContactDetailsSection = () => {
         <Row>
           <Col lg='4' sm='6'>
             <div className='contact_wrap'>
-              <MapPin />
-              <h4>Where ?</h4>
+               <MapPin />
+               <h4>Where ?</h4>
               <p className='font-roboto'>
                 549 Sulphur Springs Road <br />
                 Downers Grove, IL 60515 <br />
@@ -25,8 +25,8 @@ const ContactDetailsSection = () => {
           </Col>
           <Col lg='4' sm='6'>
             <div className='contact_wrap'>
-              <MapPin />
-              <h4>Second branch</h4>
+               <MapPin />
+               <h4>Second branch</h4>
               <p className='font-roboto'>
                 5415 Spring garden Road <br />
                 Halifax, IL 97230 <br />

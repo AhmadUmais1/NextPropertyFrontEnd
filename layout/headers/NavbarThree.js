@@ -15,7 +15,7 @@ const NavbarThree = ({ logo }) => {
         <Row>
           <Col>
             <div className='menu'>
-              {logo || <Logo3 />}
+              {logo || <Logo3/>}
               <MainNav />
               <RightNav />
             </div>

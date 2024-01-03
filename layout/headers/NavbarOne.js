@@ -11,6 +11,7 @@ import MainNav from "./elements/MainNav";
 import RightNav from "./elements/RightNav";
 
 const NavbarOne = ({ logo, fixed }) => {
+
   const fix = useStickyBar();
   return (
     <header className={`header-1 ${fixed ? "fixed-header" : "header-6"} ${fixed && fix ? "fixed" : ""} `}>

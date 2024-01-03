@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row, Container } from "reactstrap";
-import { Logo6 } from "../../components/elements/Logo";
+import { Logo5 } from "../../components/elements/Logo";
 import MainNav from "./elements/MainNav";
 import RightNav from "./elements/RightNav";
 
@@ -11,7 +11,7 @@ const NavbarFive = ({ logo }) => {
         <Row>
           <Col>
             <div className='menu'>
-              {logo || <Logo6 />}
+              {logo || <Logo5 />}
               <MainNav />
               <RightNav />
             </div>

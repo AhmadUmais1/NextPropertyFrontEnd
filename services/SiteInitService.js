@@ -17,21 +17,33 @@ export async function getSiteInitData() {
     }
   }
 
-  export async function getHeaderData() {
+  export function getHeaderData(data) {
     try {
-        let data = [];
-         await getSiteInitData().then((res) => {
-            if(res.data.headerData !== undefined){
-                data = res.data.headerData;
-            }else{
-                data = [];
-            }
-          });
-      return data;
+        let res = [];
+      if(data.data.headerData !== undefined){
+        res = data.data.headerData;
+      }
+      return res;
     } catch (error) {
       console.error("Error: Get Header");
     }
   }
+
+  // export async function getHeaderData() {
+  //   try {
+  //       let data = [];
+  //        await getSiteInitData().then((res) => {
+  //           if(res.data.headerData !== undefined){
+  //               data = res.data.headerData;
+  //           }else{
+  //               data = [];
+  //           }
+  //         });
+  //     return data;
+  //   } catch (error) {
+  //     console.error("Error: Get Header");
+  //   }
+  // }
 
   export async function getFooterData() {
     try {
@@ -74,6 +86,22 @@ export async function getSiteInitData() {
                 data = [];
             }
           });
+      return data;
+    } catch (error) {
+      console.error("Error: Get Right Nav");
+    }
+  }
+
+  export async function getHeaderLogo() {
+    try {
+        let data = "/assets/images/logo/6.png";
+        //  await getSiteInitData().then((res) => {
+        //     if(res.data.headerData.theme_header_logo !== undefined){
+        //         data = res.data.headerData.theme_header_logo;
+        //     }else{
+        //         data = "";
+        //     }
+        //   });
       return data;
     } catch (error) {
       console.error("Error: Get Right Nav");

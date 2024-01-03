@@ -13,9 +13,12 @@ import "photoswipe/dist/photoswipe.css";
 import StoreOldData from "../utils/StoreOldData";
 import "react-toastify/dist/ReactToastify.css";
 import { ConfigDB } from "../config/themeCustomizerConfig";
+//import {getSiteInitData } from "../services/SiteInitService";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+
+//console.log(pageProps);
 
   useEffect(() => {
     router.events.on("routeChangeComplete", () => {
@@ -49,5 +52,18 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
+
+// MyApp.getInitialProps = async (appContext)=>{
+
+//   const appProps = await App.getInitialProps(appContext);
+//   const testprops = ["testKey","testVal"]
+//   return 
+//   {
+//     pageProps:{
+//       ...appProps.pageProps,
+//       testprops
+//     }
+//   }
+// }
 
 export default appWithTranslation(MyApp);

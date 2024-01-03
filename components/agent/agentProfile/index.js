@@ -30,7 +30,7 @@ const BodyContent = () => {
                       <li>
                         <div className="media">
                           <div className="icons-square">
-                            <MapPin />
+                             <MapPin /> 
                           </div>
                           <div className="media-body">
                             <h6>A-32, Albany, Newyork.</h6>

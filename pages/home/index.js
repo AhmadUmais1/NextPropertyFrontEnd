@@ -11,9 +11,10 @@ import LoadHeader from "../../layout/headers/LoadHeader";
 import LoadFooter from "../../layout/footers/LoadFooter";
 import BodyContent from "../../components/home/corporate";
 import { ConfigDB } from "../../config/themeCustomizerConfig";
+import {getSiteInitData } from "../../services/SiteInitService";
 
-export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
-const Corporate = () => {
+//export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
+const Corporate = (props) => {
   useEffect(() => {
     setTimeout(() => {
       !ConfigDB.PrimaryColor && document.documentElement.style.setProperty("--theme-default", "#5eac12");
@@ -22,11 +23,23 @@ const Corporate = () => {
   }, []);
   return (
     <>
-      <LoadHeader />
+      <LoadHeader data={props.siteInitData}/>
       <BodyContent />
       <LoadFooter />
     </>
   );
 };
+
+export async function getStaticProps({ locale }) {
+
+  const siteInitData = await getSiteInitData();
+
+  return {
+    props: { 
+      ...(await serverSideTranslations(locale, ["common"])),
+      siteInitData
+  } 
+  }
+}
 
 export default Corporate;

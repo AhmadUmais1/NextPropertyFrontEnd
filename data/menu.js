@@ -730,10 +730,10 @@ export const MainNavMenuItems = [
   },
   {
     title: "CONTACT",
-    icon: <MapPin />,
-    type: "sub",
-    path:"/pages/contactUs",
-    children: [
+/*     icon: <MapPin />,
+ */    type: "sub",
+/*     path:"/pages/contactUs",
+ */    children: [
       
     ],
   },

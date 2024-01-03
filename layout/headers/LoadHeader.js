@@ -5,58 +5,43 @@ import NavbarFive from "./NavbarFive";
 import NavbarSix from "./NavbarSix";
 import NavbarOne from "./NavbarOne";
 import React from "react";
-import axios from "axios";
-import { useState, useEffect } from 'react';
-//import callApi from "../callApi";
-function LoadHeader() {
-  const [apiData, setApiData] = useState(null);
+import { Logo,Logo2,Logo3,Logo4,Logo5,Logo6 } from "../../components/elements/Logo";
+import {getHeaderData } from "../../services/SiteInitService";
+function LoadHeader(props) {
 
-  useEffect(() => {
-    axios
-      .get("https://realtor.bh/api/v1/site/init")
-      .then((res) => {
-       
-        setApiData(res.data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
-
-  //let siteInitData = {};
-  let headerLayout = apiData?.data.headerData.theme_header_layout_id
-console.log("------------------------------",headerLayout)
-  //siteInitData.theme_header_layout_id;
+  const headerData = getHeaderData(props.data);
+  const headerLayout = headerData.theme_header_layout_id
+  const headerLogo = headerData.theme_header_logo
   if(headerLayout == "header-layout-1"){
     return (
-        <NavbarOne/>
+        <NavbarOne logo={<Logo logoPath={headerLogo}/>}/>
       );
 
   }
   if(headerLayout == "header-layout-2"){
     return (
-        <NavbarTwo/>
+        <NavbarTwo logo={<Logo2 logoPath={headerLogo}/>}/>
       );
   }
 
   if(headerLayout == "header-layout-3"){
     return (
-        <NavbarThree/>
+        <NavbarThree logo={<Logo3 logoPath={headerLogo}/>}/>
       );
   }
   if(headerLayout == "header-layout-4"){
     return (
-        <NavbarFour/>
+        <NavbarFour logo={<Logo4 logoPath={headerLogo}/>}/>
       );
   }
   if(headerLayout == "header-layout-5"){
     return(
-      <NavbarFive/>
+      <NavbarFive logo={<Logo5 logoPath={headerLogo}/>} />
     );
   }
   if(headerLayout == "header-layout-6"){
     return(
-      <NavbarSix/>
+      <NavbarSix logo={<Logo6 logoPath={headerLogo}/>}/>
     )
   }
 

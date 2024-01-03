@@ -10,7 +10,7 @@ import NavbarOne from "../../layout/headers/NavbarOne";
 export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
 import FooterOne from "../../layout/footers/FooterOne";
 import BodyContent from "../../components/home/image-with-content";
-import { Logo4 } from "../../components/elements/Logo";
+import LoadLogo from "../../components/elements/LoadLogo";
 import { ConfigDB } from "../../config/themeCustomizerConfig";
 
 const ImageWithContent = () => {
@@ -22,9 +22,9 @@ const ImageWithContent = () => {
   }, []);
   return (
     <>
-      <NavbarOne logo={<Logo4 />} fixed={true} />
+      <NavbarOne logo={<LoadLogo />} fixed={true} />
       <BodyContent />
-      <FooterOne logo={<Logo4 />} />
+      <FooterOne logo={<LoadLogo />} />
     </>
   );
 };
