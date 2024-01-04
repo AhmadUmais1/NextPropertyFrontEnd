@@ -107,4 +107,17 @@ export async function getSiteInitData() {
       console.error("Error: Get Right Nav");
     }
   }
+  export async function getContactNumberData() {
+    try {
+        let data = "";
+         await getSiteInitData().then((res) => {
+            if(res.data.headerData.theme_contact_no !== undefined){
+                data = res.data.headerData.theme_contact_no;
+            }
+          });
+      return data;
+    } catch (error) {
+      console.error("Error: Get contact no ");
+    }
+  }  
 
