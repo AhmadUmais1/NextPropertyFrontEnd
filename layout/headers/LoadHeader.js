@@ -10,8 +10,8 @@ import {getHeaderData } from "../../services/SiteInitService";
 function LoadHeader(props) {
 
   const headerData = getHeaderData(props.data);
-  const headerLayout = headerData.theme_header_layout_id
-  const headerLogo = headerData.theme_header_logo
+  const headerLayout = headerData?.theme_header_layout_id
+  const headerLogo = headerData?.theme_header_logo
   if(headerLayout == "header-layout-1"){
     return (
         <NavbarOne logo={<Logo logoPath={headerLogo}/>}/>
