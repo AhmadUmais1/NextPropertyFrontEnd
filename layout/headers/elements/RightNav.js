@@ -21,7 +21,6 @@ const RightNav = () =>{
       .catch((error) => console.log("Error", error));
 }, []);
 
-console.log(getRightNavData(),"right nav data....");
   return (
     <ul className="header-right">
       <li className="right-menu">

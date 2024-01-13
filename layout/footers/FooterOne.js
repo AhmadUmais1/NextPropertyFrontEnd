@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Container, Row } from "reactstrap";
 import { Logo } from "../../components/elements/Logo";
 import { FooterData } from "../../data/footerData";
+import LoadFooter from "./LoadFooter";
+import { getFooterAddress } from "../../services/SiteInitService";
 import FooterBlog from "./elements/FooterBlog";
 import FooterContactUsDetails from "./elements/FooterContactUsDetails";
 import FooterLink from "./elements/FooterLink";
 import FooterMap from "./elements/FooterMap";
 import SubFooter from "./elements/SubFooter";
 
-const FooterOne = ({ logo }) => {
+const FooterOne = ({logo,Address}) => {
   const [isActive, setIsActive] = useState();
-
+  const [address, setAddress] = useState({});
+console.log(Address,)
   return (
     <footer className='footer-brown'>
       <div className='footer footer-custom-col'>
@@ -28,5 +31,4 @@ const FooterOne = ({ logo }) => {
     </footer>
   );
 };
-
 export default FooterOne;

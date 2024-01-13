@@ -8,7 +8,7 @@ export async function getSiteInitData() {
             data = data.data;
         }else{
             data = {};
-        }
+        } 
 /*         console.log(data,"........data");
  */      return data;
     } catch (error) {
@@ -16,10 +16,20 @@ export async function getSiteInitData() {
     
     }
   }
-
-  export function getHeaderData(data) {
+/*   export function getFooter(data) {
     try {
         let res = [];
+      if(data.data.footerData !== undefined){
+        res = data.data.footerData;
+      }
+      return res;
+    } catch (error) {
+      console.error("Error: Get footer");
+    }
+  } */
+  export function getHeaderData(data) {
+    try {
+        let res = {};
       if(data.data.headerData !== undefined){
         res = data.data.headerData;
       }
@@ -45,22 +55,55 @@ export async function getSiteInitData() {
   //   }
   // }
 
-  export async function getFooterData() {
+  export function getFooterData(data) {
     try {
-        let data = [];
-         await getSiteInitData().then((res) => {
-            if(res.data.footerData !== undefined){
-                data = res.data.footerData;
-            }else{
-                data = [];
-            }
-          });
-      return data;
+        let res = {};
+      if(data.data.footerData !== undefined){
+        res = data.data.footerData;
+      }
+      return res;
     } catch (error) {
       console.error("Error: Get Footer");
     }
   }
 
+  // export async function getFooterData() {
+  //   try {
+  //       let data = [];
+  //        await getSiteInitData().then((res) => {
+  //           if(res.data.footerData !== undefined){
+  //               data = res.data.footerData;
+  //           }else{
+  //               data = [];
+  //           }
+  //         });
+  //     return data;
+  //   } catch (error) {
+  //     console.error("Error: Get Footer");
+  //   }
+  // }
+  export function getFooterAddress(data) {
+    try {
+        let res = {};
+      if(data.data.footerData.theme_address !== undefined){
+        res = data.data.footerData.theme_address;
+      }
+      return res;
+    } catch (error) {
+      console.error("Error: Get Footer");
+    }
+  }
+  export function getFooterLogo(data) {
+    try {
+        let res = {};
+      if(data.data.footerData.theme_footer_logo!== undefined){
+        res = data.data.footerData.theme_footer_logo;
+      }
+      return res;
+    } catch (error) {
+      console.error("Error: Get Footer Logo");
+    }
+  }
   export async function getMainMenuData() {
     try {
         let data = [];

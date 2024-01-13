@@ -4,13 +4,15 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { User } from "react-feather";
 import Breadcrumb from "../../layout/Breadcrumb/Breadcrumb";
 import FooterOne from "../../layout/footers/FooterOne";
+import { getSiteInitData } from "../../services/SiteInitService";
 import LoadHeader from "../../layout/headers/LoadHeader";
-export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
+import LoadFooter from "../../layout/footers/LoadFooter";
+//export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
 
-const ForgotPassword = () => {
+const ForgotPassword = (props) => {
   return (
     <>
-      <LoadHeader />
+      <LoadHeader data={props.siteInitData}/>
       <Breadcrumb />
       <section className='login-wrap'>
         <Container>
@@ -42,9 +44,20 @@ const ForgotPassword = () => {
           </div>
         </Container>
       </section>
-      <FooterOne />
+     { /*<FooterOne />*/}
+     <LoadFooter data={props.siteInitData}/>
     </>
   );
 };
+export async function getStaticProps({ locale }) {
 
+  const siteInitData = await getSiteInitData();
+
+  return {
+    props: { 
+      ...(await serverSideTranslations(locale, ["common"])),
+      siteInitData
+  } 
+  }
+}
 export default ForgotPassword;

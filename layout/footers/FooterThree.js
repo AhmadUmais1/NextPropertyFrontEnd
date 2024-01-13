@@ -5,15 +5,16 @@ import FooterLink from "./elements/FooterLink";
 import FooterBlog from "./footerThreeElements/FooterBlog";
 import FooterContactUsDetails from "./footerThreeElements/FooterContactUsDetails";
 import SubFooterTwo from "./elements/SubFooterTwo";
-
-const FooterThree = () => {
+import { Logo3 } from "../../components/elements/Logo";
+const FooterThree = ({logo}) => {
   const [isActive, setIsActive] = useState();
   return (
     <footer>
       <div className="footer footer-bg">
         <Container>
           <Row>
-            <FooterContactUsDetails />
+            <FooterContactUsDetails
+             logo={logo || <Logo3 />}/>
             <Col xl="9">
               <Row>
                 <FooterLink value={FooterData.usefulLinks} isActive={isActive} setIsActive={setIsActive} />

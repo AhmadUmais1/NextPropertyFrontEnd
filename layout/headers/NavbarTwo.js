@@ -38,7 +38,7 @@ const NavbarTwo = ({ logo }) => {
           <Row>
             <div className="col-12">
               <div className="header-layout-3">
-                <MainNav icon={true} />
+                <MainNav icon={false} />
                 <div className="contact-number">
                   <i className="fas fa-phone-alt"></i>
                   <span className="font-roboto">{contactNo}</span>

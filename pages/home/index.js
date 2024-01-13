@@ -25,7 +25,7 @@ const Corporate = (props) => {
     <>
       <LoadHeader data={props.siteInitData}/>
       <BodyContent />
-      <LoadFooter />
+      <LoadFooter data={props.siteInitData} />
     </>
   );
 };

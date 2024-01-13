@@ -1,20 +1,33 @@
 import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import LoadHeader from "../../layout/headers/LoadHeader";
-export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
+import LoadFooter from "../../layout/footers/LoadFooter";
+//export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
 import FooterOne from "../../layout/footers/FooterOne";
 import Breadcrumb from "../../layout/Breadcrumb/Breadcrumb";
 import BodyContent from "../../components/pages/userPanel";
-
-const Favorites = () => {
+import { getSiteInitData } from "../../services/SiteInitService";
+const Favorites = (props) => {
   return (
     <>
-      <LoadHeader />
+      <LoadHeader data={props.siteInitData}/>
       <Breadcrumb />
       <BodyContent active={"Favorites"} />
-      <FooterOne />
+      {/*<FooterOne />*/}
+      <LoadFooter data={props.siteInitData}/>
     </>
   );
 };
+export async function getStaticProps({ locale }) {
+
+  const siteInitData = await getSiteInitData();
+
+  return {
+    props: { 
+      ...(await serverSideTranslations(locale, ["common"])),
+      siteInitData
+  } 
+  }
+}
 
 export default Favorites;

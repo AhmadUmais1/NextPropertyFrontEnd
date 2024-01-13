@@ -8,11 +8,12 @@ import BodyContent from "../../components/pages/agency/agencyGrid";
 import Breadcrumb from "../../layout/Breadcrumb/Breadcrumb";
 import LoadHeader from "../../layout/headers/LoadHeader";
 import LoadFooter from "../../layout/footers/LoadFooter";
+import { getSiteInitData } from "../../services/SiteInitService";
 //import FooterOne from "../../layout/footers/FooterOne";
-export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
+//export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
 import { getData } from "../../utils/getData";
 
-const AgentList = () => {
+const AgentList = (props) => {
   const [clientData, setClientData] = useState();
 
   useEffect(() => {
@@ -24,12 +25,22 @@ const AgentList = () => {
   }, []);
   return (
     <>
-      <LoadHeader />
+      <LoadHeader data={props.siteInitData}/>
       <Breadcrumb />
       <BodyContent clientData={clientData} style={"list-view"} listSize={2} size={3} />
-      <LoadFooter />
+      <LoadFooter data={props.siteInitData}/>
     </>
   );
 };
+export async function getStaticProps({ locale }) {
 
+  const siteInitData = await getSiteInitData();
+
+  return {
+    props: { 
+      ...(await serverSideTranslations(locale, ["common"])),
+      siteInitData
+  } 
+  }
+}
 export default AgentList;

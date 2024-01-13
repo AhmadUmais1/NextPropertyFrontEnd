@@ -4,8 +4,9 @@ import { Container, Row } from "reactstrap";
 import { FooterData } from "../../data/footerData";
 import FooterContactUsDetails from "./elements/FooterContactUsDetails";
 import FooterLink from "./elements/FooterLink";
+import { Logo4 } from "../../components/elements/Logo";
 
-const FooterFour = () => {
+const FooterFour = ({logo}) => {
   const [isActive, setIsActive] = useState();
   return (
     <footer className="footer-light">
@@ -13,12 +14,7 @@ const FooterFour = () => {
         <Container>
           <Row>
             <FooterContactUsDetails
-              logo={
-                <Link href="/">
-                  <img src="/assets/images/logo/4.png" className="for-light" alt="" />
-                  <img src="/assets/images/logo/9.png" className="for-dark" alt="" />
-                </Link>
-              }
+             logo={logo || <Logo4 />}
               isActive={isActive}
               setIsActive={setIsActive}
               liteFooter="true"

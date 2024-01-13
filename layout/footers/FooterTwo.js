@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { Col, Container, Row } from "reactstrap";
 import { FooterData } from "../../data/footerData";
 import FooterBlog from "./elements/FooterBlog";
+import { Logo2 } from "../../components/elements/Logo";
 import FooterContactUsDetails from "./elements/FooterContactUsDetails";
 // import FooterContactDetails from "./elements/FooterContactDetails";
 import FooterLink from "./elements/FooterLink";
 import FooterMap from "./elements/FooterMap";
 import SubFooter from "./elements/SubFooter";
 
-const FooterTwo = () => {
+const FooterTwo = ({logo}) => {
   const [isActive, setIsActive] = useState();
 
   return (
@@ -19,11 +20,7 @@ const FooterTwo = () => {
             <FooterContactUsDetails
               isActive={isActive}
               setIsActive={setIsActive}
-              logo={
-                <a>
-                  <img src="/assets/images/logo/3.png" alt="" />
-                </a>
-              }
+              logo={logo || <Logo2 />}
             />
             <FooterLink value={FooterData.about} isActive={isActive} setIsActive={setIsActive} />
             <FooterMap isActive={isActive} setIsActive={setIsActive} />

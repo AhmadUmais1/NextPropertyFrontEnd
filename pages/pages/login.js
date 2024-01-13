@@ -6,13 +6,14 @@ import Link from "next/link";
 import Breadcrumb from "../../layout/Breadcrumb/Breadcrumb";
 import FooterOne from "../../layout/footers/FooterOne";
 import LoadHeader from "../../layout/headers/LoadHeader";
+import LoadFooter from "../../layout/footers/LoadFooter";
+import { getSiteInitData } from "../../services/SiteInitService";
+//export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
 
-export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
-
-const Login = () => {
+const Login = (props) => {
   return (
     <>
-      <LoadHeader />
+      <LoadHeader data={props.siteInitData} />
       <Breadcrumb />
       <section className="login-wrap">
         <Container>
@@ -103,9 +104,22 @@ const Login = () => {
           </Row>
         </Container>
       </section>
-      <FooterOne />
+      {/*<FooterOne />*/}
+      <LoadFooter data={props.siteInitData}/>
     </>
   );
 };
+export async function getStaticProps({ locale }) {
+
+  const siteInitData = await getSiteInitData();
+
+  return {
+    props: { 
+      ...(await serverSideTranslations(locale, ["common"])),
+      siteInitData
+  } 
+  }
+}
+
 
 export default Login;

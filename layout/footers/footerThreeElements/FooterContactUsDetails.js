@@ -3,11 +3,11 @@ import React from "react";
 import { Col } from "reactstrap";
 import { Logo3 } from "../../../components/elements/Logo";
 
-const FooterContactUsDetails = () => {
+const FooterContactUsDetails = ({logo}) => {
   return (
     <Col xl="3">
       <div className="footer-details text-center">
-        <Logo3 />
+        logo={logo || <Logo3 />}
         <p>Elegant retreat in a quiet Coral Gables setting. This home provides wonderful entertaining spaces with a chef kitchen opening</p>
         <h6>Contact us</h6>
         <ul className="icon-list">
