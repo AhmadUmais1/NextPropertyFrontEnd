@@ -3,20 +3,28 @@ import React, { Fragment, useEffect, useState } from "react";
 import { ChevronRight } from "react-feather";
 import { Col } from "reactstrap";
 import { getBottomFooterIcon } from "../../services/SiteInitService";
-const FooterTwoLink = ({ value, isActive, setIsActive, liteFooter, columnTwo, columnTwoData, columnFourLabel, columnFourData }) => {
+
+const FooterLink = ({ value, isActive, setIsActive, liteFooter, columnTwo, columnTwoData, columnFourLabel, columnFourData }) => {
   const [bottomFooterDataIcons, setbottomFooterDataIcons] = useState([]);
-  
+  const [linksData, setLinksData] = useState([]);
+
   useEffect(() => {
     getBottomFooterIcon()
       .then((res) => {
         setbottomFooterDataIcons(res);
       })
-      .catch(() => console.log("Error", error));
+      .catch((error) => console.log("Error", error));
   }, []);
 
-  console.log(columnTwo, "columnTwo");
+  useEffect(() => {
+    if (!linksData || linksData.length === 0) {
+      setLinksData([{ text: 'Please enter data correctly', url: 'Please enter data correctly' }]);
+    } else {
+      setLinksData(value.title === "Tag" ? columnFourData : columnTwoData);
+    }
+  }, [value.title, columnTwoData, columnFourData]);
 
-  const linksData = value.title === "Tag" ? columnFourData : columnTwoData;
+
   const title = value.title === "Tag" ? columnFourLabel : columnTwo;
 
   return (
@@ -51,4 +59,4 @@ const FooterTwoLink = ({ value, isActive, setIsActive, liteFooter, columnTwo, co
   );
 };
 
-export default FooterTwoLink;
+export default FooterLink;

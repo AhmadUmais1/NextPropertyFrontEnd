@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import { Col, Container, Row } from "reactstrap";
 import FooterThree from "../../../layout/footers/FooterThree";
 import FooterOne from "../../../layout/footers/FooterOne";
@@ -53,3 +53,4 @@ const BodyContent = () => {
 };
 
 export default BodyContent;
+ */

@@ -35,7 +35,6 @@ function LoadFooter (props){
     const bottomFooterCopyRights = bottomFooterData?.themeCopyRights
     const Map = getGoogleMaps(props.data)
     const mapKey = Map?.googleMapKey
-    console.log(column1Links,"column1Links")
     if (footerLayout === "footer-layout-1"){
         return(
             <FooterOne 

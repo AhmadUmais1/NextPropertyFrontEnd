@@ -2,7 +2,6 @@ import React from "react";
 import { Col } from "reactstrap";
 
 const FooterContactUsDetails = ({ isActive, setIsActive, logo, liteFooter, Address, contactNo, mail, about,columnOneLinks }) => {
-  console.log(columnOneLinks,"columnOneLinks")
   const contactDetails = [
     { iconsClass: "fas fa-map-marker-alt", detail: ", Albany, Newyork." },
   ];
