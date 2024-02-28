@@ -116,7 +116,7 @@ export async function getSiteInitData() {
       console.error("Error: Get Footer");
     }
   }
-  export function getBottomFooter(data) {
+   export function getBottomFooter(data) {
     try {
         let res = {};
       if(data.data.bottomFooterData!== undefined){
@@ -126,7 +126,7 @@ export async function getSiteInitData() {
     } catch (error) {
       console.error("Error: Get bottom footer");
     }
-  }
+  } 
   export function getCopyRights(data) {
     try {
         let res = {};

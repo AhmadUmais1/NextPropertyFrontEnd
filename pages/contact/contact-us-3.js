@@ -6,21 +6,21 @@
 import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import NavbarTwo from "../../layout/headers/NavbarTwo";
-
+import LoadFooter from "../../layout/footers/LoadFooter";
 export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
 import FooterOne from "../../layout/footers/FooterOne";
 import Breadcrumb from "../../layout/Breadcrumb/Breadcrumb";
 import BodyContent from "../../components/contact/contactUs3";
-
-const ContactUs1 = () => {
+import LoadHeader from "../../layout/headers/LoadHeader";
+const ContactUs3 = () => {
   return (
     <>
-      <NavbarTwo />
+      <LoadHeader />
       <Breadcrumb />
       <BodyContent />
-      <FooterOne />
+      <LoadFooter />
     </>
   );
 };
 
-export default ContactUs1;
+export default ContactUs3;
