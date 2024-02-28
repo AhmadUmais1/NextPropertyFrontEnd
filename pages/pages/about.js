@@ -1,22 +1,33 @@
 import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import FooterOne from "../../layout/footers/FooterOne";
-import LoadHeader from "../../layout/headers/LoadHeader";
+import NavbarThree from "../../layout/headers/NavbarOne";
+//export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
+import FooterThree from "../../layout/footers/FooterThree";
 import LoadFooter from "../../layout/footers/LoadFooter";
-export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
 import Breadcrumb from "../../layout/Breadcrumb/Breadcrumb";
-import BodyContent from "../../components/modules/about";
-
-const button = () => {
+import BodyContent from "../../components/pages/otherPages/aboutUs1";
+import LoadHeader from "../../layout/headers/LoadHeader";
+import { getSiteInitData } from "../../services/SiteInitService";
+const AboutUs1 = (props) => {
   return (
     <>
-      <LoadHeader />
+      <LoadHeader data={props.siteInitData}/>
       <Breadcrumb />
       <BodyContent />
-     {/* <FooterOne />*/}
-     <LoadFooter/>
+      <LoadFooter data={props.siteInitData}/>
     </>
   );
 };
+export async function getStaticProps({ locale }) {
 
-export default button;
+  const siteInitData = await getSiteInitData();
+
+  return {
+    props: { 
+      ...(await serverSideTranslations(locale, ["common"])),
+      siteInitData
+  } 
+  }
+}
+
+export default AboutUs1;

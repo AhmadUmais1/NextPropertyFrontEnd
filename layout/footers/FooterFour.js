@@ -1,12 +1,23 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import { Container, Row } from "reactstrap";
 import { FooterData } from "../../data/footerData";
 import FooterContactUsDetails from "./elements/FooterContactUsDetails";
-import FooterLink from "./elements/FooterLink";
+import FooterFourLink from "./FooterFourLink";
+import { useEffect,useState } from "react";
+import { getBottomFooterIcon } from "../../services/SiteInitService";
 import { Logo4 } from "../../components/elements/Logo";
-
-const FooterFour = ({logo}) => {
+import FooterLink from "./elements/FooterLink";
+const FooterFour = ({logo,Address,contactNo,mail,copyRights,columnOneLinks,columnTwo, columnTwoData, columnFour, columnFourData,columnThree,columnThreeData,footerFourColFive,footerFourColFiveData}) => {
+  const [bottomFooterDataIcons, setbottomFooterDataIcons] = useState([]);
+  useEffect(() => {
+    getBottomFooterIcon()
+      .then((res) => {
+        setbottomFooterDataIcons(res);
+      })
+      .catch(() => console.log("Error", error));
+      
+  }, []);
   const [isActive, setIsActive] = useState();
   return (
     <footer className="footer-light">
@@ -18,12 +29,16 @@ const FooterFour = ({logo}) => {
               isActive={isActive}
               setIsActive={setIsActive}
               liteFooter="true"
+              Address={Address}
+              contactNo={contactNo}
+              mail={mail}
+              columnOneLinks={columnOneLinks}
             />
 
-            <FooterLink value={FooterData.about} isActive={isActive} setIsActive={setIsActive} liteFooter={6} />
-            <FooterLink value={FooterData.buy} isActive={isActive} setIsActive={setIsActive} liteFooter={6} />
-            <FooterLink value={FooterData.sell} isActive={isActive} setIsActive={setIsActive} liteFooter={6} />
-            <FooterLink value={FooterData.relandEstate} isActive={isActive} setIsActive={setIsActive} liteFooter={6} />
+            <FooterFourLink value={FooterData.about} isActive={isActive} setIsActive={setIsActive} liteFooter={6} columnTitle={columnTwo} columnData={columnTwoData}/>
+            <FooterFourLink value={FooterData.buy} isActive={isActive} setIsActive={setIsActive} liteFooter={6} columnTitle={columnThree} columnData={columnThreeData}/>
+            <FooterFourLink value={FooterData.sell} isActive={isActive} setIsActive={setIsActive} liteFooter={6} columnTitle={columnFour} columnData={columnFourData}/>
+            <FooterFourLink value={FooterData.relandEstate} isActive={isActive} setIsActive={setIsActive} liteFooter={6} columnTitle={footerFourColFive} columnData={footerFourColFiveData}/>
           </Row>
         </Container>
       </div>
@@ -33,7 +48,15 @@ const FooterFour = ({logo}) => {
             <div className="col-xl-6 col-md-6">
               <div className="footer-social sub-footer-link">
                 <ul>
-                  <li>
+                {bottomFooterDataIcons.map((value, index) => (
+                <li key={index}>
+                  <a href={value.themeSocialUrl}>
+                    <i className={value.themeSocialIcon}></i>
+                  </a>
+                </li>
+                ))}
+
+                 {/*  <li>
                     <a href="https://www.facebook.com/">
                       <i className="fab fa-facebook-f"></i>
                     </a>
@@ -52,14 +75,14 @@ const FooterFour = ({logo}) => {
                     <a href="https://accounts.google.com/">
                       <i className="fab fa-google"></i>
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
             <div className="col-xl-6 col-md-6 text-end">
               <div className="copy-right">
                 <p className="mb-0">
-                  Copyright 2022 Sheltos By <i className="fas fa-heart"></i> Pixelstrap
+                {copyRights}
                 </p>
               </div>
             </div>

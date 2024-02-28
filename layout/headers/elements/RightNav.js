@@ -28,7 +28,7 @@ const RightNav = () =>{
           {rightNavItems.map((value, i) => (
             <Fragment key={i}>
               {value.title === "language" && <Language value={value} />}
-              {value.title === "cart" && <Cart />}
+              {value.title === "cart" && <Cart value={value} />}
               {value.title === "currency" && <Currency value={value} />}
               {value.title === "user" && (
                 <li className="dropdown">

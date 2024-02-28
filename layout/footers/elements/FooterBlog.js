@@ -19,7 +19,7 @@ const FooterBlog = ({ isActive, setIsActive, img }) => {
             <i className="fas fa-chevron-down"></i>
           </span>
         </h5>
-        <div className={`footer-content ${isActive === "OurLatestBlog" ? "d-block" : "d-none d-md-block"}`}>
+       {/*  <div className={`footer-content ${isActive === "OurLatestBlog" ? "d-block" : "d-none d-md-block"}`}>
           <div className="footer-blog">
             {FooterData.our_latest_blog.children.map((value, i) => (
               <div className="media" key={i}>
@@ -39,8 +39,8 @@ const FooterBlog = ({ isActive, setIsActive, img }) => {
               </div>
             ))}
           </div>
-        </div>
-      </div>
+            </div> */}
+      </div> 
     </Col>
   );
 };

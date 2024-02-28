@@ -4,7 +4,7 @@
  * @returns The return value of the function is an object with a props property.
  */
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import LoadHeader from "../../layout/headers/LoadHeader";
 /* import FooterOne from "../../layout/footers/FooterOne";
  */
@@ -12,20 +12,28 @@ import LoadFooter from "../../layout/footers/LoadFooter";
 import BodyContent from "../../components/home/corporate";
 import { ConfigDB } from "../../config/themeCustomizerConfig";
 import {getSiteInitData } from "../../services/SiteInitService";
-
+import { getThemeColor } from "../../services/SiteInitService";
 //export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
 const Corporate = (props) => {
+  const [themeColor,setThemeColor]=useState([]);
+
   useEffect(() => {
+    
+  let themeColor =  getThemeColor(props.siteInitData);
+   const themePrimaryColor = themeColor?.theme_primary_color;
+   const themeSecondary1Color = themeColor?.theme_secondary1_color
     setTimeout(() => {
-      !ConfigDB.PrimaryColor && document.documentElement.style.setProperty("--theme-default", "#5eac12");
-      !ConfigDB.SecondaryColor && document.documentElement.style.setProperty("--theme-default2", "#5eac12");
+      !ConfigDB.PrimaryColor && document.documentElement.style.setProperty("--theme-default", themePrimaryColor);
+      !ConfigDB.SecondaryColor && document.documentElement.style.setProperty("--theme-default2", themeSecondary1Color);
     }, 0.1);
-  }, []);
+    
+  }, []); 
+  
   return (
     <>
       <LoadHeader data={props.siteInitData}/>
       <BodyContent />
-      <LoadFooter data={props.siteInitData} />
+      <LoadFooter data={props.siteInitData}/>
     </>
   );
 };

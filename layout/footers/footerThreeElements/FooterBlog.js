@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import { footerSlider } from "../../../data/slickSlider";
 import NoSsr from "../../../utils/NoSsr";
 
-const FooterBlog = () => {
+const FooterBlog = ({slider}) => {
   return (
     <div className="bottom-blog">
       <div className="slick-between">
@@ -12,36 +12,30 @@ const FooterBlog = () => {
           <Slider className="footer-slider" {...footerSlider}>
             <div>
               <div className="media">
-                <Link href="/pages/blog-page/left-sidebar">
                   <div className="img-overlay">
                     <img src="/assets/images/footer/1.jpg" alt="" />
                   </div>
-                </Link>
-
                 <div className="media-body">
                   <h6>
-                    <Link href="/pages/blog-page/left-sidebar">Real Estate Industry</Link>
+                  {slider}
                   </h6>
                   <p className="font-roboto">
-                    <Link href="/pages/blog-page/right-sidebar">An Electronic version of the real estate industry.</Link>
+                    {slider}                  
                   </p>
                 </div>
               </div>
             </div>
             <div>
               <div className="media">
-                <Link href="/pages/blog-page/left-sidebar">
                   <div className="img-overlay">
                     <img src="/assets/images/footer/2.jpg" alt="" />
                   </div>
-                </Link>
                 <div className="media-body">
                   <h6>
-                    <Link href="/pages/blog-page/left-sidebar">Entertaining Spaces</Link>
+                  {slider}
                   </h6>
                   <p className="font-roboto">
-                    <Link href="/pages/blog-detail-pages/left-sidebar">This home provides wonderful entertaining spaces.</Link>
-                  </p>
+                  {slider}</p>
                 </div>
               </div>
             </div>
@@ -54,10 +48,10 @@ const FooterBlog = () => {
                 </Link>
                 <div className="media-body">
                   <h6>
-                    <Link href="/pages/blog-page/left-sidebar">Estate Agents Work</Link>
+                  {slider}                  
                   </h6>
                   <p className="font-roboto">
-                    <Link href="/pages/blog-detail-pages/right-sidebar">The market of buying and selling real estate.</Link>
+                  {slider}                  
                   </p>
                 </div>
               </div>

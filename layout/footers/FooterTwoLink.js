@@ -2,9 +2,8 @@ import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
 import { ChevronRight } from "react-feather";
 import { Col } from "reactstrap";
-import { getBottomFooterIcon } from "../../../services/SiteInitService";
-
-const FooterLink = ({ value, isActive, setIsActive, liteFooter, columnTwo, columnTwoData, columnFourLabel, columnFourData }) => {
+import { getBottomFooterIcon } from "../../services/SiteInitService";
+const FooterTwoLink = ({ value, isActive, setIsActive, liteFooter, columnTwo, columnTwoData, columnFourLabel, columnFourData }) => {
   const [bottomFooterDataIcons, setbottomFooterDataIcons] = useState([]);
   
   useEffect(() => {
@@ -52,4 +51,4 @@ const FooterLink = ({ value, isActive, setIsActive, liteFooter, columnTwo, colum
   );
 };
 
-export default FooterLink;
+export default FooterTwoLink;

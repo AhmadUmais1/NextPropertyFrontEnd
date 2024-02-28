@@ -2,23 +2,10 @@ import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
 import { ChevronRight } from "react-feather";
 import { Col } from "reactstrap";
-import { getBottomFooterIcon } from "../../../services/SiteInitService";
 
-const FooterLink = ({ value, isActive, setIsActive, liteFooter, columnTwo, columnTwoData, columnFourLabel, columnFourData }) => {
-  const [bottomFooterDataIcons, setbottomFooterDataIcons] = useState([]);
-  
-  useEffect(() => {
-    getBottomFooterIcon()
-      .then((res) => {
-        setbottomFooterDataIcons(res);
-      })
-      .catch(() => console.log("Error", error));
-  }, []);
-
-  console.log(columnTwo, "columnTwo");
-
-  const linksData = value.title === "Tag" ? columnFourData : columnTwoData;
-  const title = value.title === "Tag" ? columnFourLabel : columnTwo;
+const FooterThreeLink = ({ value, isActive, setIsActive, liteFooter, columnTitle, columnLinks }) => {
+  const linksData = [];
+  const title = columnTitle;
 
   return (
     <Col xl={value.title === "Useful Links" ? "3" : "2"} md="3" className={value.title === "Tag" ? "order-lg" : ""}>
@@ -36,7 +23,7 @@ const FooterLink = ({ value, isActive, setIsActive, liteFooter, columnTwo, colum
           </span>
         </h5>
         <ul className={`footer-content ${isActive === value.title ? "d-block" : "d-none d-md-block"}`}>
-          {linksData.map((link, index) => (
+          {linksData && linksData.map((link, index) => (
             <Fragment key={index}>
               <li>
                 <Link href={link.url}>
@@ -52,4 +39,4 @@ const FooterLink = ({ value, isActive, setIsActive, liteFooter, columnTwo, colum
   );
 };
 
-export default FooterLink;
+export default FooterThreeLink;

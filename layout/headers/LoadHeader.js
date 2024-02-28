@@ -11,8 +11,8 @@ import { getContactNumberData } from "../../services/SiteInitService";
 function LoadHeader(props) {
 
   const headerData = getHeaderData(props.data);
-  const headerLayout = headerData?.theme_header_layout_id
-  const headerLogo = headerData?.theme_header_logo
+  const headerLayout = headerData?.headerLayoutId
+  const headerLogo = headerData?.headerLogo
   const headerContactNo = getContactNumberData(props.data)
   if(headerLayout == "header-layout-1"){
     return (

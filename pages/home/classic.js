@@ -29,3 +29,13 @@ const Classic = () => {
 };
 
 export default Classic;
+/* const Corporate = (props) => {
+  const [themeColor,setThemeColor]=useState([]);
+
+  useEffect(() => {
+    getThemeColor()
+      .then((res) => {
+        setThemeColor(res);
+      })
+      .catch((error) => console.log("Error", error));
+  }, []); */

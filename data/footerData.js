@@ -1,7 +1,7 @@
 export const FooterData = {
   contactDetails: [
-    { iconsClass: "fas fa-map-marker-alt", detail: "A-32, Albany, Newyork." },
-    { iconsClass: "fas fa-phone-alt", detail: "(+066) 518 - 457 - 5181" },
+    { iconsClass: "fas fa-map-marker-alt", detail: ", Albany, Newyork." },
+    { iconsClass: "fas fa-phone-alt", detail: " - 457 - 5181" },
     { iconsClass: "fas fa-envelope", detail: "Contact@gmail.com" },
   ],
   description: "This home provides entertaining spaces with a kitchen opening...",
