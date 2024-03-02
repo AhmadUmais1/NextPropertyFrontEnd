@@ -35,8 +35,21 @@ export async function getSiteInitData() {
       }
       return res;
     } catch (error) {
-      console.error("Error: Get Header");
+      //console.error("Error: Get Header data");
     }
+  }
+  function defaultHeaderData (){
+    const defaultHeaderData = {
+      "headerLogo": "https://realtor.bh/modules/xts/themes/theme_1/assets/images/user_5/KLAKfqEPdWJ4oqOScWbuPMC6TgIwybeIkO0p4ex3.png",
+      "headerLogoName": "",
+      "isEnable": "on",
+      "contactNo": "",
+      "languages": "on",
+      "wishlist": "on",
+      "currency": "on",
+      "account": "on",
+      "headerLayoutId": "header-layout-1"
+    };
   }
 
   // export async function getHeaderData() {
@@ -63,8 +76,52 @@ export async function getSiteInitData() {
       }
       return res;
     } catch (error) {
-      console.error("Error: Get Footer");
+      return defaultFooterData();
+      //console.error("Error: Get Footer data");
     }
+  }
+
+  function defaultFooterData (){
+    const defaultFooterData =
+    
+    {
+      "footerLogo": "https://realtor.bh/modules/xts/themes/theme_1/assets/images/user_5/1ufZd0xjiZrXW0flEHFDvAdBmnEuiHpQ5Rh0tfkc.png",
+      "footerLogoName": "",
+      "aboutCompany": "About",
+      "column1Label": "",
+      "column1Links": [
+        {
+          "icon": "fas fa-map-marker-alt",
+          "text": "Text"
+        }
+      ],
+      "column2Label": "Col2",
+      "column2Links": [
+        {
+          "text": "Col2",
+          "url": "Link2"
+        }
+      ],
+      "column3Label": "Col3",
+      "column3Links": [],
+      "mapLat": "28",
+      "mapLong": "30",
+      "mapZoom": "16",
+      "column4Label": "Col4",
+      "column4Links": [
+        {
+          "text": "Text4",
+          "url": "Col4"
+        }
+      ],
+      "column5Label": "Col5",
+      "column5Links": [],
+      "column5Description": "",
+      "footerSliderLabel": "",
+      "footerBgColor": "",
+      "footerBarColor": "",
+      "footerLayoutId": "footer-layout-1"
+    }; 
   }
 
   // export async function getFooterData() {
@@ -82,7 +139,7 @@ export async function getSiteInitData() {
   //     console.error("Error: Get Footer");
   //   }
   // }
-  export function getThemeColor(data) {
+   export function getThemeColor(data) {
       try {
         let res = {};
       if(data.data.colorData !== undefined){
@@ -92,9 +149,9 @@ export async function getSiteInitData() {
     } catch (error) {
       console.error("Error: Theme Color");
     }
-  }
+  } 
   
-  export function getFooterAddress(data) {
+  /* export function getFooterAddress(data) {
     try {
         let res = {};
       if(data.data.footerData.theme_address !== undefined){
@@ -102,10 +159,10 @@ export async function getSiteInitData() {
       }
       return res;
     } catch (error) {
-      console.error("Error: Get Footer");
+      console.error("Error: FooterAddress");
     }
-  }
-  export function getFooterContactNo(data) {
+  } */
+  /* export function getFooterContactNo(data) {
     try {
         let res = {};
       if(data.data.footerData.theme_contact_no!== undefined){
@@ -113,9 +170,9 @@ export async function getSiteInitData() {
       }
       return res;
     } catch (error) {
-      console.error("Error: Get Footer");
+      console.error("Error: FooterContactNo");
     }
-  }
+  } */
    export function getBottomFooter(data) {
     try {
         let res = {};
@@ -124,10 +181,30 @@ export async function getSiteInitData() {
       }
       return res;
     } catch (error) {
-      console.error("Error: Get bottom footer");
+      return defaultBottomFooter();
+      //console.error("Error: Get bottom footer");
     }
-  } 
-  export function getCopyRights(data) {
+  }
+  
+  function defaultBottomFooter(){
+    const defaultBottomFooter =
+  
+    {
+      "themeCopyRights": "© 2024 All rights reserved.",
+      "themeSocial": [
+        {
+          "themeSocialIcon": "fab fa-facebook-f",
+          "themeSocialUrl": "https://www.facebook.com"
+        },
+        {
+          "themeSocialIcon": "fa fa-instagram",
+          "themeSocialUrl": "https://www.instagram.com"
+        }
+      ]
+    };
+
+  }
+  /* export function getCopyRights(data) {
     try {
         let res = {};
       if(data.data.bottomFooterData.themeCopyRights!== undefined){
@@ -135,10 +212,10 @@ export async function getSiteInitData() {
       }
       return res;
     } catch (error) {
-      console.error("Error: Get bottom footer");
+      console.error("Error: Get CopyRights");
     }
-  }
-  export function getGoogleMaps(data) {
+  } */
+   export function getGoogleMaps(data) {
     try {
         let res = {};
       if(data.data.googleMapData!== undefined){
@@ -146,12 +223,20 @@ export async function getSiteInitData() {
       }
       return res;
     } catch (error) {
-      console.error("Error: Get bottom footer");
+      //console.error("Error: Get GoogleMaps");
+    }
+  } 
+  export function defaultGoogleMaps (){
+    const defaultGoogleMaps =
+    {
+      "googleMapKey": 23,
+      "googleMapLat": 24,
+      "googleMapLong": 25,
+      "googleZoom": 26
     }
   }
   
-  
-  export function getFooterAboutCompany(data) {
+  /* export function getFooterAboutCompany(data) {
     try {
         let res = {};
       if(data.data.footerData.theme_about_company!== undefined){
@@ -161,8 +246,8 @@ export async function getSiteInitData() {
     } catch (error) {
       console.error("Error: Get About company");
     }
-  }
-  export function getFooterLogo(data) {
+  } */
+  /* export function getFooterLogo(data) {
     try {
         let res = {};
       if(data.data.footerData.theme_footer_logo!== undefined){
@@ -172,7 +257,7 @@ export async function getSiteInitData() {
     } catch (error) {
       console.error("Error: Get Footer Logo");
     }
-  }
+  } */
   export async function getBottomFooterIcon() {
     try {
         let data = {};
@@ -185,7 +270,7 @@ export async function getSiteInitData() {
           });
       return data;
     } catch (error) {
-      console.error("Error: Get Main Menu");
+      console.error("Error: BottomFooterIcon");
     }
   }
   
@@ -232,7 +317,7 @@ export async function getSiteInitData() {
         //   });
       return data;
     } catch (error) {
-      console.error("Error: Get Right Nav");
+      console.error("Error: Get Header Logo");
     }
   }
   export async function getContactNumberData() {
