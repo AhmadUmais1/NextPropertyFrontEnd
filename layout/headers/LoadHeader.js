@@ -13,7 +13,6 @@ function LoadHeader(props) {
   const headerData = getHeaderData(props.data);
   const headerLayout = headerData?.headerLayoutId
   const headerLogo = headerData?.headerLogo
-  console.log(headerLogo,"LOGO")
   const headerContactNo = getContactNumberData(props.data)
   if(headerLayout == "header-layout-1"){
     return (

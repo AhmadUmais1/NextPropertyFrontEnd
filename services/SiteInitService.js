@@ -9,7 +9,7 @@ export async function getSiteInitData() {
         }else{
             data = {};
         } 
-         console.log(data,"........data");
+        //  console.log(data,"........data");
        return data;
     } catch (error) {
       console.error("Error", error);
@@ -33,25 +33,37 @@ export async function getSiteInitData() {
       if(data.data.headerData !== undefined){
         res = data.data.headerData;
       }
-      console.log(res,"res")
+       console.log(res,"res")
       return res;
     } catch (error) {
-      console.log(error,"Error: Get Header data");
-    }
-  }
-  //function defaultHeaderData (){
-   /*  const defaultHeaderData = {
-      "headerLogo": "https://realtor.bh/modules/xts/themes/theme_1/assets/images/user_5/KLAKfqEPdWJ4oqOScWbuPMC6TgIwybeIkO0p4ex3.png",
-      "headerLogoName": "",
-      "isEnable": "on",
-      "contactNo": "",
-      "languages": "on",
-      "wishlist": "on",
-      "currency": "on",
-      "account": "on",
-      "headerLayoutId": "header-layout-1"
-    }; */
-  //}
+      //console.error("Error: Get Header data");
+      function defaultHeaderData (){
+        const defaultHeaderData = {
+          "headerLogo": "https://realtor.bh/modules/xts/themes/theme_1/assets/images/user_5/KLAKfqEPdWJ4oqOScWbuPMC6TgIwybeIkO0p4ex3.png",
+          "headerLogoName": "",
+          "isEnable": "on",
+          "contactNo": "",
+          "languages": "on",
+          "wishlist": "on",
+          "currency": "on",
+          "account": "on",
+          "headerLayoutId": "header-layout-1"
+        }; 
+      }
+     }}
+  // function defaultHeaderData (){
+  //   const defaultHeaderData = {
+  //     "headerLogo": "https://realtor.bh/modules/xts/themes/theme_1/assets/images/user_5/KLAKfqEPdWJ4oqOScWbuPMC6TgIwybeIkO0p4ex3.png",
+  //     "headerLogoName": "",
+  //     "isEnable": "on",
+  //     "contactNo": "",
+  //     "languages": "on",
+  //     "wishlist": "on",
+  //     "currency": "on",
+  //     "account": "on",
+  //     "headerLayoutId": "header-layout-1"
+  //   }; 
+  // }
 
   // export async function getHeaderData() {
   //   try {
