@@ -21,13 +21,13 @@ export const FooterData = {
   tag: {
     title: "Tag",
     children: [
-      { title: "Blog", link: "/pages/blog-page/no-sidebar" },
-      { title: "Blog list", link: "/pages/blog-page/left-sidebar" },
-      { title: "Creative blog", link: "/pages/blog-page/creative-right-sidebar" },
-      { title: "Masonry", link: "/pages/blog-page/masonry-left-sidebar" },
-      { title: "Mix blog", link: "/pages/blog-page/mix-list-right-sidebar" },
-      { title: "Details", link: "/pages/blog-detail-pages/detail-with-gallery" },
-      { title: "Video", link: "/pages/blog-detail-pages/detail-with-video" },
+      { title: "Agent List", link: "\pages\agent-list.js" },
+      { title: "Create Property", link: "\pages\create-property.js" },
+      { title: "forgot Password", link: "\pages\forgot-password.js" },
+      { title: "Masonry", link: "\pages\masonry.js" },
+      { title: "Services", link: "\pages\services.js" },
+      { title: "SignUp", link: "\pages\signup.js" },
+      { title: "Login", link: "\pages\login.js" },
     ],
   },
   usefulLinks: {

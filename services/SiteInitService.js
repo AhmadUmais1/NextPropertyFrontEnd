@@ -39,7 +39,7 @@ export async function getSiteInitData() {
     }
   }
   function defaultHeaderData (){
-    const defaultHeaderData = {
+   /*  const defaultHeaderData = {
       "headerLogo": "https://realtor.bh/modules/xts/themes/theme_1/assets/images/user_5/KLAKfqEPdWJ4oqOScWbuPMC6TgIwybeIkO0p4ex3.png",
       "headerLogoName": "",
       "isEnable": "on",
@@ -49,7 +49,7 @@ export async function getSiteInitData() {
       "currency": "on",
       "account": "on",
       "headerLayoutId": "header-layout-1"
-    };
+    }; */
   }
 
   // export async function getHeaderData() {
@@ -81,10 +81,10 @@ export async function getSiteInitData() {
     }
   }
 
-  function defaultFooterData (){
+ /*  function defaultFooterData (){
     const defaultFooterData =
-    
-    {
+     */
+   /*  {
       "footerLogo": "https://realtor.bh/modules/xts/themes/theme_1/assets/images/user_5/1ufZd0xjiZrXW0flEHFDvAdBmnEuiHpQ5Rh0tfkc.png",
       "footerLogoName": "",
       "aboutCompany": "About",
@@ -123,7 +123,7 @@ export async function getSiteInitData() {
       "footerLayoutId": "footer-layout-1"
     }; 
   }
-
+ */
   // export async function getFooterData() {
   //   try {
   //       let data = [];
@@ -185,11 +185,11 @@ export async function getSiteInitData() {
       //console.error("Error: Get bottom footer");
     }
   }
-  
+  /* 
   function defaultBottomFooter(){
     const defaultBottomFooter =
-  
-    {
+   */
+    /* {
       "themeCopyRights": "© 2024 All rights reserved.",
       "themeSocial": [
         {
@@ -203,7 +203,7 @@ export async function getSiteInitData() {
       ]
     };
 
-  }
+  } */
   /* export function getCopyRights(data) {
     try {
         let res = {};
@@ -223,10 +223,10 @@ export async function getSiteInitData() {
       }
       return res;
     } catch (error) {
-      //console.error("Error: Get GoogleMaps");
+      console.error("Error: Get GoogleMaps");
     }
   } 
-  export function defaultGoogleMaps (){
+  /* export function defaultGoogleMaps (){
     const defaultGoogleMaps =
     {
       "googleMapKey": 23,
@@ -235,7 +235,7 @@ export async function getSiteInitData() {
       "googleZoom": 26
     }
   }
-  
+   */
   /* export function getFooterAboutCompany(data) {
     try {
         let res = {};

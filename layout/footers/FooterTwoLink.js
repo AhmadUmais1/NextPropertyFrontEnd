@@ -17,13 +17,8 @@ const FooterLink = ({ value, isActive, setIsActive, liteFooter, columnTwo, colum
   }, []);
 
   useEffect(() => {
-    if (!linksData || linksData.length === 0) {
-      setLinksData([{ text: 'Please enter data correctly', url: 'Please enter data correctly' }]);
-    } else {
-      setLinksData(value.title === "Tag" ? columnFourData : columnTwoData);
-    }
+    setLinksData(value.title === "Tag" ? columnFourData : columnTwoData);
   }, [value.title, columnTwoData, columnFourData]);
-
 
   const title = value.title === "Tag" ? columnFourLabel : columnTwo;
 

@@ -1,40 +1,38 @@
-/**
- * It takes a locale and an array of namespaces, and returns an object with the translations for those
- * namespaces
- * @returns The return value of the function is an object with a props property.
- */
 import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import LoadHeader from "../../layout/headers/LoadHeader";
 import LoadFooter from "../../layout/footers/LoadFooter";
-import { getSiteInitData } from "../../services/SiteInitService";
-//export const getStaticProps = async ({ locale }) => ({ props: { ...(await serverSideTranslations(locale, ["common"])) } });
 import FooterOne from "../../layout/footers/FooterOne";
 import Breadcrumb from "../../layout/Breadcrumb/Breadcrumb";
-import BodyContent from "../../components/contact/contactUs3";
-
-const ContactUs1 = (props) => {
-  return (
+import BodyContent from "../../components/contact/contactUs1";
+/* import { fetchContactUsData } from "../../contact-us-data/apidata";  
+ */import { getSiteInitData } from "../../services/SiteInitService";
+const ContactUs1 = ({ siteInitData/* , contactUsData */ }) => {
+/*   console.log(contactUsData,"siteinit")
+ */  return (
     <>
-      <LoadHeader data={props.siteInitData}/>
-      <Breadcrumb />
-      <BodyContent />
+      <LoadHeader data={siteInitData} />
+      <Breadcrumb /* contactUsData={contactUsData} */ /> 
+      <BodyContent /* contactUsData={contactUsData} */ /> 
       {/*<FooterOne />*/}
-      <LoadFooter data={props.siteInitData}/>
+      <LoadFooter data={siteInitData} />
     </>
   );
 };
-export async function getStaticProps({ locale }) {
 
-  const siteInitData = await getSiteInitData();
+export async function getStaticProps({ locale }) {
+  const [siteInitData/* , contactUsData */] = await Promise.all([
+    getSiteInitData(),
+/*     fetchContactUsData()
+ */  ]);
 
   return {
-    props: { 
+    props: {
       ...(await serverSideTranslations(locale, ["common"])),
-      siteInitData
-  } 
-  }
+      siteInitData,
+      /* contactUsData */
+    }
+  };
 }
-
 
 export default ContactUs1;

@@ -17,13 +17,13 @@ const FooterThreeLink = ({ value, isActive, setIsActive, liteFooter, colNum, col
             setIsActive(value.title);
             isActive === value.title && setIsActive();
           }}>
-          {columnTitle ? String(columnTitle) : defaultTitle}
+          {columnTitle}
           <span className="according-menu">
             <i className="fas fa-chevron-down"></i>
           </span>
         </h5>
         <ul className={`footer-content ${isActive === value.title ? "d-block" : "d-none d-md-block"}`}>
-          {(columnData && columnData.length > 0 ? columnData : defaultData).map((value, i) => (
+          {(columnData).map((value, i) => (
             <Fragment key={i}>
               {value.url && ( 
                 <li>

@@ -3,10 +3,7 @@ import React, { Fragment } from "react";
 import { ChevronRight } from "react-feather";
 import { Col } from "reactstrap";
 
-const FooterThreeLink = ({ value, isActive, setIsActive, liteFooter, colNum, columnTitle, columnData }) => {
-  const defaultData = [{ text: 'Please enter data correctly', url: 'Please enter data correctly' }];
-  const defaultTitle = 'Please enter title correctly';
-
+const FooterThreeLink = ({ value, isActive, setIsActive, liteFooter, colNum, columnTitle, columnData}) => {
   return (
     <Col xl={colNum} md="3" className={value.title === "Tag" ? "order-lg" : ""}>
       <div className="footer-links footer-left-space">
@@ -17,15 +14,17 @@ const FooterThreeLink = ({ value, isActive, setIsActive, liteFooter, colNum, col
             setIsActive(value.title);
             isActive === value.title && setIsActive();
           }}>
-          {columnTitle ? String(columnTitle) : defaultTitle}
+          {String(columnTitle)}
           <span className="according-menu">
             <i className="fas fa-chevron-down"></i>
           </span>
         </h5>
         <ul className={`footer-content ${isActive === value.title ? "d-block" : "d-none d-md-block"}`}>
-          {(columnData && columnData.length > 0 ? columnData : defaultData).map((value, i) => (
+          {columnData.map((value, i) => (
             <Fragment key={i}>
-              {value.url && ( 
+              {liteFooter === i ? (
+                ""
+              ) : (
                 <li>
                   <Link href={value.url}>
                     {liteFooter && <ChevronRight />}
@@ -41,4 +40,4 @@ const FooterThreeLink = ({ value, isActive, setIsActive, liteFooter, colNum, col
   );
 };
 
-export default FooterThreeLink;
+export default FooterThreeLink
