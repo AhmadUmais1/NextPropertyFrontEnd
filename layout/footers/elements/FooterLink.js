@@ -15,7 +15,7 @@ const FooterLink = ({ value, isActive, setIsActive, liteFooter, columnTwo, colum
       .catch(() => console.log("Error", error));
   }, []);
 
-  console.log(columnTwoData, "columnTwoData");
+  //console.log(columnTwoData, "columnTwoData");
 
   const linksData = value.title === "Tag" ? columnFourData : columnTwoData;
   const title = value.title === "Tag" ? columnFourLabel : columnTwo;

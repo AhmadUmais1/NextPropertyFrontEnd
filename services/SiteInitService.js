@@ -9,8 +9,8 @@ export async function getSiteInitData() {
         }else{
             data = {};
         } 
-/*         console.log(data,"........data");
- */      return data;
+         console.log(data,"........data");
+       return data;
     } catch (error) {
       console.error("Error", error);
     
@@ -33,12 +33,13 @@ export async function getSiteInitData() {
       if(data.data.headerData !== undefined){
         res = data.data.headerData;
       }
+      console.log(res,"res")
       return res;
     } catch (error) {
-      //console.error("Error: Get Header data");
+      console.log(error,"Error: Get Header data");
     }
   }
-  function defaultHeaderData (){
+  //function defaultHeaderData (){
    /*  const defaultHeaderData = {
       "headerLogo": "https://realtor.bh/modules/xts/themes/theme_1/assets/images/user_5/KLAKfqEPdWJ4oqOScWbuPMC6TgIwybeIkO0p4ex3.png",
       "headerLogoName": "",
@@ -50,11 +51,11 @@ export async function getSiteInitData() {
       "account": "on",
       "headerLayoutId": "header-layout-1"
     }; */
-  }
+  //}
 
   // export async function getHeaderData() {
   //   try {
-  //       let data = [];
+  //       let data = {};
   //        await getSiteInitData().then((res) => {
   //           if(res.data.headerData !== undefined){
   //               data = res.data.headerData;
@@ -62,6 +63,7 @@ export async function getSiteInitData() {
   //               data = [];
   //           }
   //         });
+  //         console.log(data,"jjhhjjk")
   //     return data;
   //   } catch (error) {
   //     console.error("Error: Get Header");
@@ -76,8 +78,7 @@ export async function getSiteInitData() {
       }
       return res;
     } catch (error) {
-      return defaultFooterData();
-      //console.error("Error: Get Footer data");
+      console.error("Error: Get Footer data");
     }
   }
 
@@ -181,8 +182,7 @@ export async function getSiteInitData() {
       }
       return res;
     } catch (error) {
-      return defaultBottomFooter();
-      //console.error("Error: Get bottom footer");
+      console.error("Error: Get bottom footer");
     }
   }
   /* 
